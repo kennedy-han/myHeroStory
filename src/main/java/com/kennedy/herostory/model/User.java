@@ -1,4 +1,4 @@
-package com.kennedy.herostory;
+package com.kennedy.herostory.model;
 
 /**
  * 用户

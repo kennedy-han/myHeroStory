@@ -1,5 +1,6 @@
 package com.kennedy.herostory;
 
+import com.kennedy.herostory.cmdhandler.CmdHandlerFactory;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -27,6 +28,9 @@ public class ServerMain {
      * @param args  后续传入server端口号
      */
     public static void main(String[] args) {
+        CmdHandlerFactory.init();
+        GameMsgRecognizer.init();
+
         EventLoopGroup bossGroup = new NioEventLoopGroup(); // 这个是故事中的美女
         EventLoopGroup workerGroup = new NioEventLoopGroup();   // 这个是故事中的服务生
 
