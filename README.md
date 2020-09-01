@@ -12,6 +12,8 @@
 
 下载地址（选择对应的OS）•[https://](https://github.com/protocolbuffers/protobuf)[github.com](https://github.com/protocolbuffers/protobuf)[/](https://github.com/protocolbuffers/protobuf)[protocolbuffers](https://github.com/protocolbuffers/protobuf)[/](https://github.com/protocolbuffers/protobuf)[protobuf](https://github.com/protocolbuffers/protobuf)
 
+目前使用版本：protoc-3.13.0-rc-3-win64.zip
+
 
 
 关于 **Protobuf** 
