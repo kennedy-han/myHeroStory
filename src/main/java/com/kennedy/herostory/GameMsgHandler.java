@@ -46,12 +46,16 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("收到客户端消息, msgClazz = " + msg.getClass().getName() + ", msg = " + msg);
+//        System.out.println("收到客户端消息, msgClazz = " + msg.getClass().getName() + ", msg = " + msg);
 
-        ICmdHandler<? extends GeneratedMessageV3> cmdHandler = CmdHandlerFactory.create(msg.getClass());
-
-        if (null != cmdHandler) {
-            cmdHandler.handle(ctx, cast(msg));
+//        ICmdHandler<? extends GeneratedMessageV3> cmdHandler = CmdHandlerFactory.create(msg.getClass());
+//
+//        if (null != cmdHandler) {
+//            cmdHandler.handle(ctx, cast(msg));
+//        }
+        if (msg instanceof GeneratedMessageV3) {
+            // 通过主线程处理器处理消息
+            MainThreadProcessor.getInstance().process(ctx, (GeneratedMessageV3) msg);
         }
 //        if (msg instanceof GameMsgProtocol.UserEntryCmd) {
 //            new UserEntryCmdHandler().handle(ctx, (GameMsgProtocol.UserEntryCmd) msg);
@@ -63,20 +67,6 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
 
     }
 
-    /**
-     * 转型消息对象
-     * (欺骗编译器，否则cmdHandler.handle(ctx, msg) 这样写会报错
-     *
-     * @param msg
-     * @param <TCmd>
-     * @return
-     */
-    static private <TCmd extends GeneratedMessageV3> TCmd cast(Object msg) {
-        if (null == msg) {
-            return null;
-        } else {
-            return (TCmd) msg;
-        }
-    }
+
 
 }
