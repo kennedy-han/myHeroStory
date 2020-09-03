@@ -29,6 +29,7 @@ public final class CmdHandlerFactory {
         _handlerMap.put(GameMsgProtocol.UserEntryCmd.class, new UserEntryCmdHandler());
         _handlerMap.put(GameMsgProtocol.WhoElseIsHereCmd.class, new WhoElseIsHereCmdHandler());
         _handlerMap.put(GameMsgProtocol.UserMoveToCmd.class, new UserMoveToCmdHandler());
+        _handlerMap.put(GameMsgProtocol.UserAttkCmd.class, new UserAttkCmdHandler());
     }
 
     /**

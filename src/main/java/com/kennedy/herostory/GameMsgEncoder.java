@@ -1,7 +1,6 @@
 package com.kennedy.herostory;
 
 import com.google.protobuf.GeneratedMessageV3;
-import com.kennedy.herostory.msg.GameMsgProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
