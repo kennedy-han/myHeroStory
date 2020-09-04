@@ -41,8 +41,8 @@ public class WhoElseIsHereCmdHandler implements ICmdHandler<GameMsgProtocol.WhoE
             // 将移动状态设置给用户信息
             userInfoBuilder.setMoveState(mvStateBuilder);
 
+            // 将用户信息添加到结果消息
             resultBuilder.addUserInfo(userInfoBuilder);
-
         }
 
         GameMsgProtocol.WhoElseIsHereResult newResult = resultBuilder.build();

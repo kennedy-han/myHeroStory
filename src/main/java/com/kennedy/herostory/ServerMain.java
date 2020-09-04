@@ -30,6 +30,7 @@ public class ServerMain {
     public static void main(String[] args) {
         CmdHandlerFactory.init();
         GameMsgRecognizer.init();
+        MySqlSessionFactory.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup(); // 这个是故事中的美女
         EventLoopGroup workerGroup = new NioEventLoopGroup();   // 这个是故事中的服务生
