@@ -27,7 +27,7 @@ public final class UserManager {
      */
     static public void addUser(User newUser) {
         if (null != newUser) {
-            _userMap.put(newUser.userId, newUser);
+            _userMap.putIfAbsent(newUser.userId, newUser);
         }
     }
 

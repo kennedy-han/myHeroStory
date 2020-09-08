@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import java.util.function.Function;
 
 /**
  * 主线程处理器
@@ -93,6 +94,17 @@ public class MainThreadProcessor {
                 LOGGER.error(ex.getMessage(), ex);
             }
         });
+    }
+
+    /**
+     * 处理消息对象
+     *
+     * @param r Runnable
+     */
+    public void process(Runnable r) {
+        if (null != r) {
+            _es.submit(r);
+        }
     }
 
     /**

@@ -3,6 +3,8 @@ package com.kennedy.herostory.cmdhandler;
 import com.kennedy.herostory.Broadcaster;
 import com.kennedy.herostory.model.User;
 import com.kennedy.herostory.model.UserManager;
+import com.kennedy.herostory.mq.MQProducer;
+import com.kennedy.herostory.mq.VictorMsg;
 import com.kennedy.herostory.msg.GameMsgProtocol;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
@@ -30,8 +32,8 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         }
 
         // 获取攻击者 Id
-        Integer userId = (Integer)ctx.channel().attr(AttributeKey.valueOf("userId")).get();
-        if (null == userId) {
+        Integer attkUserId = (Integer)ctx.channel().attr(AttributeKey.valueOf("userId")).get();
+        if (null == attkUserId) {
             return;
         }
 
@@ -43,7 +45,7 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
 
         GameMsgProtocol.UserAttkResult.Builder newBuilder = GameMsgProtocol.UserAttkResult.newBuilder();
         newBuilder.setTargetUserId(targetUserId);
-        newBuilder.setAttkUserId(userId);
+        newBuilder.setAttkUserId(attkUserId);
 
         GameMsgProtocol.UserAttkResult newResult = newBuilder.build();
         Broadcaster.broadcast(newResult);
@@ -74,6 +76,17 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         if (targetUser.currHp <= 0) {
             // 广播死亡消息
             broadcastDie(targetUserId);
+
+            if (!targetUser.died) {
+                // 设置死亡标志
+                targetUser.died = true;
+
+                // 发送消息到 MQ
+                VictorMsg mqMsg = new VictorMsg();
+                mqMsg.winnerId = attkUserId;
+                mqMsg.loserId = targetUserId;
+                MQProducer.sendMsg("Victor", mqMsg);
+            }
         }
     }
 

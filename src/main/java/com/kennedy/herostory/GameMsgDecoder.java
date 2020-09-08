@@ -45,20 +45,6 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
         msgBuilder.clear();
         msgBuilder.mergeFrom(msgBody);
 
-//        switch (msgCode) {
-//            case GameMsgProtocol.MsgCode.USER_ENTRY_CMD_VALUE:
-//                cmd = GameMsgProtocol.UserEntryCmd.parseFrom(msgBody);
-//                break;
-//
-//            case GameMsgProtocol.MsgCode.WHO_ELSE_IS_HERE_CMD_VALUE:
-//                cmd = GameMsgProtocol.WhoElseIsHereCmd.parseFrom(msgBody);
-//                break;
-//
-//            case GameMsgProtocol.MsgCode.USER_MOVE_TO_CMD_VALUE:
-//                cmd = GameMsgProtocol.UserMoveToCmd.parseFrom(msgBody);
-//                break;
-//        }
-
         // 构建消息
         Message newMsg = msgBuilder.build();
 
