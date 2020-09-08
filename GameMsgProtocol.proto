@@ -31,18 +31,16 @@ enum MsgCode {
 ///////////////////////////////////////////////////////////////////////
 // 指令
 message UserEntryCmd {
-    // 用户 Id
-    uint32 userId = 1;
-    // 英雄形象
-    string heroAvatar = 2;
 }
 
 // 结果
 message UserEntryResult {
     // 用户 Id
     uint32 userId = 1;
+    // 用户名称
+    string userName = 2;
     // 英雄形象
-    string heroAvatar = 2;
+    string heroAvatar = 3;
 }
 
 //
@@ -61,10 +59,12 @@ message WhoElseIsHereResult {
     message UserInfo {
         // 用户 Id
         uint32 userId = 1;
+        // 用户名称
+        string userName = 2;
         // 英雄形象
-        string heroAvatar = 2;
+        string heroAvatar = 3;
         // 移动状态
-        MoveState moveState = 3;
+        MoveState moveState = 4;
 
         // 移动状态
         message MoveState {

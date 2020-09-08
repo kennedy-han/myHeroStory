@@ -282,36 +282,6 @@ public final class GameMsgProtocol {
   public interface UserEntryCmdOrBuilder extends
       // @@protoc_insertion_point(interface_extends:msg.UserEntryCmd)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 用户 Id
-     * </pre>
-     *
-     * <code>uint32 userId = 1;</code>
-     * @return The userId.
-     */
-    int getUserId();
-
-    /**
-     * <pre>
-     * 英雄形象
-     * </pre>
-     *
-     * <code>string heroAvatar = 2;</code>
-     * @return The heroAvatar.
-     */
-    java.lang.String getHeroAvatar();
-    /**
-     * <pre>
-     * 英雄形象
-     * </pre>
-     *
-     * <code>string heroAvatar = 2;</code>
-     * @return The bytes for heroAvatar.
-     */
-    com.google.protobuf.ByteString
-        getHeroAvatarBytes();
   }
   /**
    * <pre>
@@ -333,7 +303,6 @@ public final class GameMsgProtocol {
       super(builder);
     }
     private UserEntryCmd() {
-      heroAvatar_ = "";
     }
 
     @java.lang.Override
@@ -366,17 +335,6 @@ public final class GameMsgProtocol {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              userId_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              heroAvatar_ = s;
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -409,67 +367,6 @@ public final class GameMsgProtocol {
               com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd.class, com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd.Builder.class);
     }
 
-    public static final int USERID_FIELD_NUMBER = 1;
-    private int userId_;
-    /**
-     * <pre>
-     * 用户 Id
-     * </pre>
-     *
-     * <code>uint32 userId = 1;</code>
-     * @return The userId.
-     */
-    @java.lang.Override
-    public int getUserId() {
-      return userId_;
-    }
-
-    public static final int HEROAVATAR_FIELD_NUMBER = 2;
-    private volatile java.lang.Object heroAvatar_;
-    /**
-     * <pre>
-     * 英雄形象
-     * </pre>
-     *
-     * <code>string heroAvatar = 2;</code>
-     * @return The heroAvatar.
-     */
-    @java.lang.Override
-    public java.lang.String getHeroAvatar() {
-      java.lang.Object ref = heroAvatar_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        heroAvatar_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 英雄形象
-     * </pre>
-     *
-     * <code>string heroAvatar = 2;</code>
-     * @return The bytes for heroAvatar.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getHeroAvatarBytes() {
-      java.lang.Object ref = heroAvatar_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        heroAvatar_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -484,12 +381,6 @@ public final class GameMsgProtocol {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (userId_ != 0) {
-        output.writeUInt32(1, userId_);
-      }
-      if (!getHeroAvatarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, heroAvatar_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -499,13 +390,6 @@ public final class GameMsgProtocol {
       if (size != -1) return size;
 
       size = 0;
-      if (userId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
-      }
-      if (!getHeroAvatarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, heroAvatar_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -521,10 +405,6 @@ public final class GameMsgProtocol {
       }
       com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd other = (com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd) obj;
 
-      if (getUserId()
-          != other.getUserId()) return false;
-      if (!getHeroAvatar()
-          .equals(other.getHeroAvatar())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -536,10 +416,6 @@ public final class GameMsgProtocol {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserId();
-      hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
-      hash = (53 * hash) + getHeroAvatar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -680,10 +556,6 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
-
-        heroAvatar_ = "";
-
         return this;
       }
 
@@ -710,8 +582,6 @@ public final class GameMsgProtocol {
       @java.lang.Override
       public com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd buildPartial() {
         com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd result = new com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd(this);
-        result.userId_ = userId_;
-        result.heroAvatar_ = heroAvatar_;
         onBuilt();
         return result;
       }
@@ -760,13 +630,6 @@ public final class GameMsgProtocol {
 
       public Builder mergeFrom(com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd other) {
         if (other == com.kennedy.herostory.msg.GameMsgProtocol.UserEntryCmd.getDefaultInstance()) return this;
-        if (other.getUserId() != 0) {
-          setUserId(other.getUserId());
-        }
-        if (!other.getHeroAvatar().isEmpty()) {
-          heroAvatar_ = other.heroAvatar_;
-          onChanged();
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -793,145 +656,6 @@ public final class GameMsgProtocol {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-
-      private int userId_ ;
-      /**
-       * <pre>
-       * 用户 Id
-       * </pre>
-       *
-       * <code>uint32 userId = 1;</code>
-       * @return The userId.
-       */
-      @java.lang.Override
-      public int getUserId() {
-        return userId_;
-      }
-      /**
-       * <pre>
-       * 用户 Id
-       * </pre>
-       *
-       * <code>uint32 userId = 1;</code>
-       * @param value The userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserId(int value) {
-        
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户 Id
-       * </pre>
-       *
-       * <code>uint32 userId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserId() {
-        
-        userId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object heroAvatar_ = "";
-      /**
-       * <pre>
-       * 英雄形象
-       * </pre>
-       *
-       * <code>string heroAvatar = 2;</code>
-       * @return The heroAvatar.
-       */
-      public java.lang.String getHeroAvatar() {
-        java.lang.Object ref = heroAvatar_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          heroAvatar_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 英雄形象
-       * </pre>
-       *
-       * <code>string heroAvatar = 2;</code>
-       * @return The bytes for heroAvatar.
-       */
-      public com.google.protobuf.ByteString
-          getHeroAvatarBytes() {
-        java.lang.Object ref = heroAvatar_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          heroAvatar_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 英雄形象
-       * </pre>
-       *
-       * <code>string heroAvatar = 2;</code>
-       * @param value The heroAvatar to set.
-       * @return This builder for chaining.
-       */
-      public Builder setHeroAvatar(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        heroAvatar_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 英雄形象
-       * </pre>
-       *
-       * <code>string heroAvatar = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearHeroAvatar() {
-        
-        heroAvatar_ = getDefaultInstance().getHeroAvatar();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 英雄形象
-       * </pre>
-       *
-       * <code>string heroAvatar = 2;</code>
-       * @param value The bytes for heroAvatar to set.
-       * @return This builder for chaining.
-       */
-      public Builder setHeroAvatarBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        heroAvatar_ = value;
-        onChanged();
         return this;
       }
       @java.lang.Override
@@ -1003,10 +727,30 @@ public final class GameMsgProtocol {
 
     /**
      * <pre>
+     * 用户名称
+     * </pre>
+     *
+     * <code>string userName = 2;</code>
+     * @return The userName.
+     */
+    java.lang.String getUserName();
+    /**
+     * <pre>
+     * 用户名称
+     * </pre>
+     *
+     * <code>string userName = 2;</code>
+     * @return The bytes for userName.
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <pre>
      * 英雄形象
      * </pre>
      *
-     * <code>string heroAvatar = 2;</code>
+     * <code>string heroAvatar = 3;</code>
      * @return The heroAvatar.
      */
     java.lang.String getHeroAvatar();
@@ -1015,7 +759,7 @@ public final class GameMsgProtocol {
      * 英雄形象
      * </pre>
      *
-     * <code>string heroAvatar = 2;</code>
+     * <code>string heroAvatar = 3;</code>
      * @return The bytes for heroAvatar.
      */
     com.google.protobuf.ByteString
@@ -1038,6 +782,7 @@ public final class GameMsgProtocol {
       super(builder);
     }
     private UserEntryResult() {
+      userName_ = "";
       heroAvatar_ = "";
     }
 
@@ -1077,6 +822,12 @@ public final class GameMsgProtocol {
               break;
             }
             case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userName_ = s;
+              break;
+            }
+            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               heroAvatar_ = s;
@@ -1129,14 +880,60 @@ public final class GameMsgProtocol {
       return userId_;
     }
 
-    public static final int HEROAVATAR_FIELD_NUMBER = 2;
+    public static final int USERNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userName_;
+    /**
+     * <pre>
+     * 用户名称
+     * </pre>
+     *
+     * <code>string userName = 2;</code>
+     * @return The userName.
+     */
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 用户名称
+     * </pre>
+     *
+     * <code>string userName = 2;</code>
+     * @return The bytes for userName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HEROAVATAR_FIELD_NUMBER = 3;
     private volatile java.lang.Object heroAvatar_;
     /**
      * <pre>
      * 英雄形象
      * </pre>
      *
-     * <code>string heroAvatar = 2;</code>
+     * <code>string heroAvatar = 3;</code>
      * @return The heroAvatar.
      */
     @java.lang.Override
@@ -1157,7 +954,7 @@ public final class GameMsgProtocol {
      * 英雄形象
      * </pre>
      *
-     * <code>string heroAvatar = 2;</code>
+     * <code>string heroAvatar = 3;</code>
      * @return The bytes for heroAvatar.
      */
     @java.lang.Override
@@ -1192,8 +989,11 @@ public final class GameMsgProtocol {
       if (userId_ != 0) {
         output.writeUInt32(1, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
+      }
       if (!getHeroAvatarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, heroAvatar_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, heroAvatar_);
       }
       unknownFields.writeTo(output);
     }
@@ -1208,8 +1008,11 @@ public final class GameMsgProtocol {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, userId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+      }
       if (!getHeroAvatarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, heroAvatar_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, heroAvatar_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1228,6 +1031,8 @@ public final class GameMsgProtocol {
 
       if (getUserId()
           != other.getUserId()) return false;
+      if (!getUserName()
+          .equals(other.getUserName())) return false;
       if (!getHeroAvatar()
           .equals(other.getHeroAvatar())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1243,6 +1048,8 @@ public final class GameMsgProtocol {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + USERID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
       hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
       hash = (53 * hash) + getHeroAvatar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1384,6 +1191,8 @@ public final class GameMsgProtocol {
         super.clear();
         userId_ = 0;
 
+        userName_ = "";
+
         heroAvatar_ = "";
 
         return this;
@@ -1413,6 +1222,7 @@ public final class GameMsgProtocol {
       public com.kennedy.herostory.msg.GameMsgProtocol.UserEntryResult buildPartial() {
         com.kennedy.herostory.msg.GameMsgProtocol.UserEntryResult result = new com.kennedy.herostory.msg.GameMsgProtocol.UserEntryResult(this);
         result.userId_ = userId_;
+        result.userName_ = userName_;
         result.heroAvatar_ = heroAvatar_;
         onBuilt();
         return result;
@@ -1464,6 +1274,10 @@ public final class GameMsgProtocol {
         if (other == com.kennedy.herostory.msg.GameMsgProtocol.UserEntryResult.getDefaultInstance()) return this;
         if (other.getUserId() != 0) {
           setUserId(other.getUserId());
+        }
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
         }
         if (!other.getHeroAvatar().isEmpty()) {
           heroAvatar_ = other.heroAvatar_;
@@ -1541,13 +1355,109 @@ public final class GameMsgProtocol {
         return this;
       }
 
+      private java.lang.Object userName_ = "";
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The userName.
+       */
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The bytes for userName.
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @param value The userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @param value The bytes for userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object heroAvatar_ = "";
       /**
        * <pre>
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The heroAvatar.
        */
       public java.lang.String getHeroAvatar() {
@@ -1567,7 +1477,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The bytes for heroAvatar.
        */
       public com.google.protobuf.ByteString
@@ -1588,7 +1498,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @param value The heroAvatar to set.
        * @return This builder for chaining.
        */
@@ -1607,7 +1517,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearHeroAvatar() {
@@ -1621,7 +1531,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @param value The bytes for heroAvatar to set.
        * @return This builder for chaining.
        */
@@ -2278,10 +2188,30 @@ public final class GameMsgProtocol {
 
       /**
        * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The userName.
+       */
+      java.lang.String getUserName();
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The bytes for userName.
+       */
+      com.google.protobuf.ByteString
+          getUserNameBytes();
+
+      /**
+       * <pre>
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The heroAvatar.
        */
       java.lang.String getHeroAvatar();
@@ -2290,7 +2220,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The bytes for heroAvatar.
        */
       com.google.protobuf.ByteString
@@ -2301,7 +2231,7 @@ public final class GameMsgProtocol {
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        * @return Whether the moveState field is set.
        */
       boolean hasMoveState();
@@ -2310,7 +2240,7 @@ public final class GameMsgProtocol {
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        * @return The moveState.
        */
       com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState getMoveState();
@@ -2319,7 +2249,7 @@ public final class GameMsgProtocol {
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        */
       com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder();
     }
@@ -2340,6 +2270,7 @@ public final class GameMsgProtocol {
         super(builder);
       }
       private UserInfo() {
+        userName_ = "";
         heroAvatar_ = "";
       }
 
@@ -2381,10 +2312,16 @@ public final class GameMsgProtocol {
               case 18: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                heroAvatar_ = s;
+                userName_ = s;
                 break;
               }
               case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                heroAvatar_ = s;
+                break;
+              }
+              case 34: {
                 com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder subBuilder = null;
                 if (moveState_ != null) {
                   subBuilder = moveState_.toBuilder();
@@ -3329,14 +3266,60 @@ public final class GameMsgProtocol {
         return userId_;
       }
 
-      public static final int HEROAVATAR_FIELD_NUMBER = 2;
+      public static final int USERNAME_FIELD_NUMBER = 2;
+      private volatile java.lang.Object userName_;
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The userName.
+       */
+      @java.lang.Override
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * 用户名称
+       * </pre>
+       *
+       * <code>string userName = 2;</code>
+       * @return The bytes for userName.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int HEROAVATAR_FIELD_NUMBER = 3;
       private volatile java.lang.Object heroAvatar_;
       /**
        * <pre>
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The heroAvatar.
        */
       @java.lang.Override
@@ -3357,7 +3340,7 @@ public final class GameMsgProtocol {
        * 英雄形象
        * </pre>
        *
-       * <code>string heroAvatar = 2;</code>
+       * <code>string heroAvatar = 3;</code>
        * @return The bytes for heroAvatar.
        */
       @java.lang.Override
@@ -3375,14 +3358,14 @@ public final class GameMsgProtocol {
         }
       }
 
-      public static final int MOVESTATE_FIELD_NUMBER = 3;
+      public static final int MOVESTATE_FIELD_NUMBER = 4;
       private com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState moveState_;
       /**
        * <pre>
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        * @return Whether the moveState field is set.
        */
       @java.lang.Override
@@ -3394,7 +3377,7 @@ public final class GameMsgProtocol {
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        * @return The moveState.
        */
       @java.lang.Override
@@ -3406,7 +3389,7 @@ public final class GameMsgProtocol {
        * 移动状态
        * </pre>
        *
-       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+       * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
        */
       @java.lang.Override
       public com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder() {
@@ -3430,11 +3413,14 @@ public final class GameMsgProtocol {
         if (userId_ != 0) {
           output.writeUInt32(1, userId_);
         }
+        if (!getUserNameBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
+        }
         if (!getHeroAvatarBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, heroAvatar_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, heroAvatar_);
         }
         if (moveState_ != null) {
-          output.writeMessage(3, getMoveState());
+          output.writeMessage(4, getMoveState());
         }
         unknownFields.writeTo(output);
       }
@@ -3449,12 +3435,15 @@ public final class GameMsgProtocol {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(1, userId_);
         }
+        if (!getUserNameBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+        }
         if (!getHeroAvatarBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, heroAvatar_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, heroAvatar_);
         }
         if (moveState_ != null) {
           size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, getMoveState());
+            .computeMessageSize(4, getMoveState());
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -3473,6 +3462,8 @@ public final class GameMsgProtocol {
 
         if (getUserId()
             != other.getUserId()) return false;
+        if (!getUserName()
+            .equals(other.getUserName())) return false;
         if (!getHeroAvatar()
             .equals(other.getHeroAvatar())) return false;
         if (hasMoveState() != other.hasMoveState()) return false;
@@ -3493,6 +3484,8 @@ public final class GameMsgProtocol {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + USERID_FIELD_NUMBER;
         hash = (53 * hash) + getUserId();
+        hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getUserName().hashCode();
         hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
         hash = (53 * hash) + getHeroAvatar().hashCode();
         if (hasMoveState()) {
@@ -3638,6 +3631,8 @@ public final class GameMsgProtocol {
           super.clear();
           userId_ = 0;
 
+          userName_ = "";
+
           heroAvatar_ = "";
 
           if (moveStateBuilder_ == null) {
@@ -3673,6 +3668,7 @@ public final class GameMsgProtocol {
         public com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo buildPartial() {
           com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo result = new com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo(this);
           result.userId_ = userId_;
+          result.userName_ = userName_;
           result.heroAvatar_ = heroAvatar_;
           if (moveStateBuilder_ == null) {
             result.moveState_ = moveState_;
@@ -3729,6 +3725,10 @@ public final class GameMsgProtocol {
           if (other == com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.getDefaultInstance()) return this;
           if (other.getUserId() != 0) {
             setUserId(other.getUserId());
+          }
+          if (!other.getUserName().isEmpty()) {
+            userName_ = other.userName_;
+            onChanged();
           }
           if (!other.getHeroAvatar().isEmpty()) {
             heroAvatar_ = other.heroAvatar_;
@@ -3809,13 +3809,109 @@ public final class GameMsgProtocol {
           return this;
         }
 
+        private java.lang.Object userName_ = "";
+        /**
+         * <pre>
+         * 用户名称
+         * </pre>
+         *
+         * <code>string userName = 2;</code>
+         * @return The userName.
+         */
+        public java.lang.String getUserName() {
+          java.lang.Object ref = userName_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            userName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 用户名称
+         * </pre>
+         *
+         * <code>string userName = 2;</code>
+         * @return The bytes for userName.
+         */
+        public com.google.protobuf.ByteString
+            getUserNameBytes() {
+          java.lang.Object ref = userName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            userName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 用户名称
+         * </pre>
+         *
+         * <code>string userName = 2;</code>
+         * @param value The userName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUserName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          userName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 用户名称
+         * </pre>
+         *
+         * <code>string userName = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUserName() {
+          
+          userName_ = getDefaultInstance().getUserName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 用户名称
+         * </pre>
+         *
+         * <code>string userName = 2;</code>
+         * @param value The bytes for userName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUserNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          userName_ = value;
+          onChanged();
+          return this;
+        }
+
         private java.lang.Object heroAvatar_ = "";
         /**
          * <pre>
          * 英雄形象
          * </pre>
          *
-         * <code>string heroAvatar = 2;</code>
+         * <code>string heroAvatar = 3;</code>
          * @return The heroAvatar.
          */
         public java.lang.String getHeroAvatar() {
@@ -3835,7 +3931,7 @@ public final class GameMsgProtocol {
          * 英雄形象
          * </pre>
          *
-         * <code>string heroAvatar = 2;</code>
+         * <code>string heroAvatar = 3;</code>
          * @return The bytes for heroAvatar.
          */
         public com.google.protobuf.ByteString
@@ -3856,7 +3952,7 @@ public final class GameMsgProtocol {
          * 英雄形象
          * </pre>
          *
-         * <code>string heroAvatar = 2;</code>
+         * <code>string heroAvatar = 3;</code>
          * @param value The heroAvatar to set.
          * @return This builder for chaining.
          */
@@ -3875,7 +3971,7 @@ public final class GameMsgProtocol {
          * 英雄形象
          * </pre>
          *
-         * <code>string heroAvatar = 2;</code>
+         * <code>string heroAvatar = 3;</code>
          * @return This builder for chaining.
          */
         public Builder clearHeroAvatar() {
@@ -3889,7 +3985,7 @@ public final class GameMsgProtocol {
          * 英雄形象
          * </pre>
          *
-         * <code>string heroAvatar = 2;</code>
+         * <code>string heroAvatar = 3;</code>
          * @param value The bytes for heroAvatar to set.
          * @return This builder for chaining.
          */
@@ -3913,7 +4009,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          * @return Whether the moveState field is set.
          */
         public boolean hasMoveState() {
@@ -3924,7 +4020,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          * @return The moveState.
          */
         public com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState getMoveState() {
@@ -3939,7 +4035,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public Builder setMoveState(com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState value) {
           if (moveStateBuilder_ == null) {
@@ -3959,7 +4055,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public Builder setMoveState(
             com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder builderForValue) {
@@ -3977,7 +4073,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public Builder mergeMoveState(com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState value) {
           if (moveStateBuilder_ == null) {
@@ -3999,7 +4095,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public Builder clearMoveState() {
           if (moveStateBuilder_ == null) {
@@ -4017,7 +4113,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder getMoveStateBuilder() {
           
@@ -4029,7 +4125,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         public com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder() {
           if (moveStateBuilder_ != null) {
@@ -4044,7 +4140,7 @@ public final class GameMsgProtocol {
          * 移动状态
          * </pre>
          *
-         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 3;</code>
+         * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
             com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState, com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder, com.kennedy.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder> 
@@ -16040,14 +16136,14 @@ public final class GameMsgProtocol {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025GameMsgProtocol.proto\022\003msg\"2\n\014UserEntr" +
-      "yCmd\022\016\n\006userId\030\001 \001(\r\022\022\n\nheroAvatar\030\002 \001(\t" +
-      "\"5\n\017UserEntryResult\022\016\n\006userId\030\001 \001(\r\022\022\n\nh" +
-      "eroAvatar\030\002 \001(\t\"\022\n\020WhoElseIsHereCmd\"\237\002\n\023" +
-      "WhoElseIsHereResult\0223\n\010userInfo\030\001 \003(\0132!." +
-      "msg.WhoElseIsHereResult.UserInfo\032\322\001\n\010Use" +
-      "rInfo\022\016\n\006userId\030\001 \001(\r\022\022\n\nheroAvatar\030\002 \001(" +
-      "\t\022>\n\tmoveState\030\003 \001(\0132+.msg.WhoElseIsHere" +
+      "\n\025GameMsgProtocol.proto\022\003msg\"\016\n\014UserEntr" +
+      "yCmd\"G\n\017UserEntryResult\022\016\n\006userId\030\001 \001(\r\022" +
+      "\020\n\010userName\030\002 \001(\t\022\022\n\nheroAvatar\030\003 \001(\t\"\022\n" +
+      "\020WhoElseIsHereCmd\"\261\002\n\023WhoElseIsHereResul" +
+      "t\0223\n\010userInfo\030\001 \003(\0132!.msg.WhoElseIsHereR" +
+      "esult.UserInfo\032\344\001\n\010UserInfo\022\016\n\006userId\030\001 " +
+      "\001(\r\022\020\n\010userName\030\002 \001(\t\022\022\n\nheroAvatar\030\003 \001(" +
+      "\t\022>\n\tmoveState\030\004 \001(\0132+.msg.WhoElseIsHere" +
       "Result.UserInfo.MoveState\032b\n\tMoveState\022\020" +
       "\n\010fromPosX\030\001 \001(\002\022\020\n\010fromPosY\030\002 \001(\002\022\016\n\006to" +
       "PosX\030\003 \001(\002\022\016\n\006toPosY\030\004 \001(\002\022\021\n\tstartTime\030" +
@@ -16097,13 +16193,13 @@ public final class GameMsgProtocol {
     internal_static_msg_UserEntryCmd_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_UserEntryCmd_descriptor,
-        new java.lang.String[] { "UserId", "HeroAvatar", });
+        new java.lang.String[] { });
     internal_static_msg_UserEntryResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_msg_UserEntryResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_UserEntryResult_descriptor,
-        new java.lang.String[] { "UserId", "HeroAvatar", });
+        new java.lang.String[] { "UserId", "UserName", "HeroAvatar", });
     internal_static_msg_WhoElseIsHereCmd_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_msg_WhoElseIsHereCmd_fieldAccessorTable = new
@@ -16121,7 +16217,7 @@ public final class GameMsgProtocol {
     internal_static_msg_WhoElseIsHereResult_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_WhoElseIsHereResult_UserInfo_descriptor,
-        new java.lang.String[] { "UserId", "HeroAvatar", "MoveState", });
+        new java.lang.String[] { "UserId", "UserName", "HeroAvatar", "MoveState", });
     internal_static_msg_WhoElseIsHereResult_UserInfo_MoveState_descriptor =
       internal_static_msg_WhoElseIsHereResult_UserInfo_descriptor.getNestedTypes().get(0);
     internal_static_msg_WhoElseIsHereResult_UserInfo_MoveState_fieldAccessorTable = new
